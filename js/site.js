@@ -1,9 +1,10 @@
 function checkPalindrome() {
     let val = document.getElementById("inputstr").value;
-    
-    if(val.length==0){return;}
-
     str = val.toLowerCase().trim();
+
+    if (str.length == 0) {
+        return;
+    }
 
     let pal = true;
     let m = 0;

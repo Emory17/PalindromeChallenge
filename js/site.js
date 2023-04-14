@@ -1,33 +1,41 @@
-function checkPalindrome() {
-    let val = document.getElementById("inputstr").value;
-    str = val.toLowerCase().trim();
+function getValues() {
+    let val = document.getElementById("inputstr").value.toLowerCase().trim();
+
+    const re = /[a-z]/g;
+    let rearr = [...val.matchAll(re)];
+    let str = ""
+    for (i = 0; i < rearr.length; i++) {
+        str += rearr[i][0];
+    }
 
     if (str.length == 0) {
         return;
     }
 
-    let pal = true;
-    let m = 0;
-    let n = str.length-1
+    let rtarr = checkforPalindrome(str);
+    displayResults(rtarr[0],rtarr[1]);
+}
 
-    while(m < n){
-        if(str[m] != str[n])
-        {
-            pal = false;
-            break;
-        }
-        m++;
-        while(str[m] == ' '){m++;}
-        n--;
-        while(str[n] == ' '){n--;}
+function checkforPalindrome(str) {
+    let rev = "";
+    for (i = str.length - 1; i >= 0; i--) {
+        rev += str[i];
     }
 
-    if(pal){
-        document.getElementById("msg").textContent = str + " is a palindrome!";
-        document.getElementById("alert").classList.remove("d-none");
+    let pal = rev == str ? true : false;
+
+    return [rev,pal];
+}
+
+function displayResults(revstr, pal) {
+    if (pal) {
+        document.getElementById("ahead").textContent =
+            "Well done! You entered a Palindrome!";
+    } else {
+        document.getElementById("ahead").textContent =
+            "Sorry. You did NOT enter a Palindrome.";
     }
-    else{
-        document.getElementById("msg").textContent = str + " is NOT a palindrome.";
-        document.getElementById("alert").classList.remove("d-none");
-    }
+    document.getElementById("msg").textContent =
+        "Your phrase revered is: " + revstr;
+    document.getElementById("alert").classList.remove("d-none");
 }

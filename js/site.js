@@ -23,20 +23,11 @@ function checkPalindrome() {
     }
 
     if(pal){
-        Swal.fire(
-            {
-                backdrop: false,
-                title: 'APP NAME',
-                text: str + " is a palindrome!"
-            }
-        );
+        document.getElementById("msg").textContent = str + " is a palindrome!";
+        document.getElementById("alert").classList.remove("d-none");
     }
     else{
-        Swal.fire(
-            {
-            backdrop: false,
-            title: "APP NAME",
-            text: str + " is NOT a palindrome.",
-        });
+        document.getElementById("msg").textContent = str + " is NOT a palindrome.";
+        document.getElementById("alert").classList.remove("d-none");
     }
 }

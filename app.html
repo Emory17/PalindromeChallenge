@@ -96,9 +96,23 @@
     </header>
 
     <main class="container mt-3">
-        <h1>APP UI GOES HERE</h1>
-        <input type="text" id="inputstr" placeholder="Enter a word"/>
-        <button onclick="checkPalindrome()"  class="btn btn-primary" id="btnSubmit">Check for Palindrome</button>
+        <div class="row row-cols-1 row-cols-md-2 gy-3">
+                <div class="col">
+                    <h1>Rewind: A Coding Challenge</h1>
+                    <h4 class="lead">
+                        This is a coding challenge using strings...
+                    </h4>
+                </div>
+                <div class="col pt-5">
+                    <h4 class="lead">Enter some text below, then press the button to see it reversed.</h4>
+                    <input class="form-control my-1" type="text" placeholder="Enter a message to reverse" id="inputstr"/>
+                    <button onclick="checkPalindrome()" class="btn btn-primary" type="button">Check for Palindrome</button>
+                    <hr/>
+                    <div class="alert alert-success mt-5 d-none" id="alert" role="alert">
+                        <h4 class="alert-heading" id="msg">Your message has been reversed!</h4>
+                    </div>
+                </div>
+            </div>
     </main>
 
     <footer class="py-3">

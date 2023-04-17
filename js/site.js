@@ -12,6 +12,12 @@ function getValues() {
     }
 
     if (str.length == 0) {
+        document.getElementById("ahead").textContent = "Error";
+        document.getElementById("alert").classList.remove("d-none");
+        document.getElementById("alert").classList.remove("alert-success");
+        document.getElementById("alert").classList.remove("alert-danger");
+        document.getElementById("alert").classList.add("alert-warning");
+        document.getElementById("msg").textContent = "Please enter a word or phrase using letters.";
         return;
     }
     revstr = revarr.join("");
@@ -42,12 +48,14 @@ function displayResults(revstr, pal) {
         document.getElementById("ahead").textContent =
             "Well done! You entered a Palindrome!";
             document.getElementById("alert").classList.remove("alert-danger");
+            document.getElementById("alert").classList.remove("alert-warning");
             document.getElementById("alert").classList.add("alert-success");
     } 
     else {
         document.getElementById("ahead").textContent =
             "Sorry. You did NOT enter a Palindrome.";
             document.getElementById("alert").classList.remove("alert-success");
+            document.getElementById("alert").classList.remove("alert-warning");
             document.getElementById("alert").classList.add("alert-danger");
     }
     document.getElementById("msg").textContent =

@@ -59,7 +59,6 @@ function displayResults(revstr, pal) {
         alertBox.classList.add("alert-danger");
     }
 
-
     document.getElementById("msg").textContent =
         "Your phrase revered is: " + revstr;
     alertBox.classList.remove("d-none");
